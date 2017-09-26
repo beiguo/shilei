@@ -24,8 +24,8 @@
 		070CF4E91F711A110041AEA6 /* inApp.html in Resources */ = {isa = PBXBuildFile; fileRef = 070CF4E61F711A110041AEA6 /* inApp.html */; };
 		070CF4EA1F711A110041AEA6 /* inAppindex.js in Resources */ = {isa = PBXBuildFile; fileRef = 070CF4E71F711A110041AEA6 /* inAppindex.js */; };
 		070CF4EB1F711A110041AEA6 /* inAppjq.js in Resources */ = {isa = PBXBuildFile; fileRef = 070CF4E81F711A110041AEA6 /* inAppjq.js */; };
+		0775FAF51F7A2C1900034EB2 /* webViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0775FAF41F7A2C1900034EB2 /* webViewController.m */; };
 		07BB765A1F7351C40008538A /* mainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BB76551F7351C40008538A /* mainViewController.m */; };
-		07BB765B1F7351C40008538A /* webViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BB76571F7351C40008538A /* webViewController.m */; };
 		07BB765C1F7351C40008538A /* webViewTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BB76591F7351C40008538A /* webViewTabBarController.m */; };
 		07BB765E1F7352590008538A /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07BB765D1F7352590008538A /* UserNotifications.framework */; };
 		1542260F4E65D0B28FED3581 /* Pods_h5game.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1579E72E2FB921872786CE3 /* Pods_h5game.framework */; };
@@ -79,10 +79,10 @@
 		070CF4E61F711A110041AEA6 /* inApp.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = inApp.html; sourceTree = "<group>"; };
 		070CF4E71F711A110041AEA6 /* inAppindex.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = inAppindex.js; sourceTree = "<group>"; };
 		070CF4E81F711A110041AEA6 /* inAppjq.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = inAppjq.js; sourceTree = "<group>"; };
+		0775FAF41F7A2C1900034EB2 /* webViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = webViewController.m; sourceTree = "<group>"; };
 		07BB76541F7351C40008538A /* mainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainViewController.h; sourceTree = "<group>"; };
 		07BB76551F7351C40008538A /* mainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainViewController.m; sourceTree = "<group>"; };
 		07BB76561F7351C40008538A /* webViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = webViewController.h; sourceTree = "<group>"; };
-		07BB76571F7351C40008538A /* webViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = webViewController.m; sourceTree = "<group>"; };
 		07BB76581F7351C40008538A /* webViewTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = webViewTabBarController.h; sourceTree = "<group>"; };
 		07BB76591F7351C40008538A /* webViewTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = webViewTabBarController.m; sourceTree = "<group>"; };
 		07BB765D1F7352590008538A /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
@@ -223,7 +223,7 @@
 				07BB76541F7351C40008538A /* mainViewController.h */,
 				07BB76551F7351C40008538A /* mainViewController.m */,
 				07BB76561F7351C40008538A /* webViewController.h */,
-				07BB76571F7351C40008538A /* webViewController.m */,
+				0775FAF41F7A2C1900034EB2 /* webViewController.m */,
 				07BB76581F7351C40008538A /* webViewTabBarController.h */,
 				07BB76591F7351C40008538A /* webViewTabBarController.m */,
 			);
@@ -565,9 +565,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				070CF4B71F71179A0041AEA6 /* ViewController.m in Sources */,
-				07BB765B1F7351C40008538A /* webViewController.m in Sources */,
 				070CF4B41F71179A0041AEA6 /* AppDelegate.m in Sources */,
 				070BFEF41F7265CC002A7E9D /* NoNetViewController.m in Sources */,
+				0775FAF51F7A2C1900034EB2 /* webViewController.m in Sources */,
 				07BB765A1F7351C40008538A /* mainViewController.m in Sources */,
 				07BB765C1F7351C40008538A /* webViewTabBarController.m in Sources */,
 				070CF4B11F71179A0041AEA6 /* main.m in Sources */,

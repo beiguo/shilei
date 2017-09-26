@@ -10,7 +10,30 @@
 #import "Masonry.h"
 #import "SVProgressHUD.h"
 #import "ScottAlertController.h"
+// UIScreen width.
+#define  LL_ScreenWidth   [UIScreen mainScreen].bounds.size.width
 
+// UIScreen height.
+#define  LL_ScreenHeight  [UIScreen mainScreen].bounds.size.height
+// iPhone X
+#define  LL_iPhoneX (LL_ScreenWidth == 375.f && LL_ScreenHeight == 812.f ? YES : NO)
+
+// Status bar height.
+#define  LL_StatusBarHeight      (LL_iPhoneX ? 44.f : 0)
+
+// Navigation bar height.
+#define  LL_NavigationBarHeight  44.f
+
+// Tabbar height.
+#define  LL_TabbarHeight         (LL_iPhoneX ? (49.f+34.f) : 49.f)
+
+// Tabbar safe bottom margin.
+#define  LL_TabbarSafeBottomMargin         (LL_iPhoneX ? 34.f : 0.f)
+
+// Status bar & navigation bar height.
+#define  LL_StatusBarAndNavigationBarHeight  (LL_iPhoneX ? 88.f : 64.f)
+
+#define LL_ViewSafeAreInsets(view) ({UIEdgeInsets insets; if(@available(iOS 11.0, *)) {insets = view.safeAreaInsets;} else {insets = UIEdgeInsetsZero;} insets;})
 #define kMainBoundsHeight   ([UIScreen mainScreen].bounds).size.height //屏幕的高度
 #define kMainBoundsWidth    ([UIScreen mainScreen].bounds).size.width //屏幕的宽度
 @interface webViewController ()<UIWebViewDelegate>{
@@ -33,8 +56,9 @@
         NSLog(@"现在是竖屏");
         self.tabBarController.tabBar.hidden = NO;
         [_webView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.right.mas_equalTo(0);
-            make.bottom.mas_equalTo(-49);
+            make.left.right.mas_equalTo(0);
+            make.top.mas_equalTo(LL_StatusBarHeight);
+            make.bottom.mas_equalTo(-LL_TabbarHeight);
         }];
         [self hideTabBar:NO];
         
@@ -64,16 +88,16 @@
             if (hidden) {
                 //
             } else {
-                [view setFrame:CGRectMake(0, kMainBoundsHeight-49, kMainBoundsWidth, 49)];
+                [view setFrame:CGRectMake(0, kMainBoundsHeight-LL_TabbarHeight, kMainBoundsWidth, LL_TabbarHeight)];
             }
         }
         else
         {
             //view
             if (hidden) {
-                [view setFrame:CGRectMake(0, 0, kMainBoundsWidth, kMainBoundsHeight+49)];
+                [view setFrame:CGRectMake(0, 0, kMainBoundsWidth, kMainBoundsHeight+LL_TabbarHeight)];
             } else {
-                [view setFrame:CGRectMake(0, 0, kMainBoundsWidth, kMainBoundsHeight)];
+                [view setFrame:CGRectMake(0, LL_StatusBarHeight, kMainBoundsWidth, kMainBoundsHeight)];
             }
         }
     }
