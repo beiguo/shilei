@@ -60,4 +60,15 @@
     [self performSegueWithIdentifier:@"goNext" sender:nil];
 }
 
+
+#pragma mark -- 需要设置全局支持旋转方向，然后重写下面三个方法可以让当前页面支持多个方向
+// 是否支持自动转屏
+- (BOOL)shouldAutorotate {
+    return NO;
+}
+// 支持哪些屏幕方向
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 @end

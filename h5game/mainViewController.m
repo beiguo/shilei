@@ -30,13 +30,16 @@
         make.left.right.bottom.right.mas_equalTo(0);
     }];
     [SVProgressHUD showWithStatus:@"等待加载"];
-    
+    [self reloadData];
+
+}
+
+-(void)reloadData{
     AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/plain",@"text/html", nil];
     [manager POST:COMPANYURL parameters:COMPANYPARA progress:^(NSProgress * _Nonnull uploadProgress) {} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         [SVProgressHUD dismiss];
-        NSLog(@"%@",responseObject);
         if (responseObject == NULL) {
             
             [[UIApplication sharedApplication].delegate window].rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"firstVC"];
@@ -48,11 +51,11 @@
             [[UIApplication sharedApplication].delegate window].rootViewController = web;
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self reloadData];
+        });
         
-            [SVProgressHUD dismiss];
-            [[UIApplication sharedApplication].delegate window].rootViewController = [[mainViewController alloc] init];
     }];
-
 }
 
 

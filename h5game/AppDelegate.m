@@ -39,7 +39,7 @@
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bgview"]];
     [view1.view addSubview:imageView];
     [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.right.mas_equalTo(0);
+        make.left.right.bottom.top.mas_equalTo(0);
     }];
     self.window.rootViewController = view1;
     //添加网络监听
@@ -76,7 +76,7 @@
                 [self noNetWork];
                 break;
             case AFNetworkReachabilityStatusReachableViaWiFi:
-                NSLog(@"wifi环境已经连接");
+                [[NSUserDefaults standardUserDefaults]setObject:@"YES" forKey:@"isFirst"];
                 if (![[self getCurrentVC] isKindOfClass:[webViewTabBarController class]]) {
                     [self addRootViewController];
                 }else
@@ -88,6 +88,7 @@
                 }
                 break;
             case AFNetworkReachabilityStatusReachableViaWWAN:
+                [[NSUserDefaults standardUserDefaults]setObject:@"YES" forKey:@"isFirst"];
                 if (![[self getCurrentVC] isKindOfClass:[webViewTabBarController class]]) {
                     [self addRootViewController];
                 }else
@@ -107,6 +108,12 @@
 
 #pragma mark -没有网
 - (void)noNetWork{
+    
+    if ([[NSUserDefaults standardUserDefaults]objectForKey:@"isFirst"] == nil) {
+        [[NSUserDefaults standardUserDefaults]setObject:@"YES" forKey:@"isFirst"];
+        return;
+    }
+    
     ScottAlertView *alertView = [ScottAlertView alertViewWithTitle:@"网络断开连接" message:@"请检查网络或者蜂窝网络使用权限"];
     
     [alertView addAction:[ScottAlertAction actionWithTitle:@"取消" style:ScottAlertActionStyleCancel handler:^(ScottAlertAction *action) {

@@ -116,6 +116,7 @@
     _webView.scrollView.backgroundColor = [UIColor whiteColor];
     //让网页适配屏幕的大小
     _webView.scalesPageToFit = YES;
+    _webView.backgroundColor = [UIColor whiteColor];
     //    禁用拖拽时的反弹效果
     [(UIScrollView *)[[_webView  subviews]firstObject] setBounces:NO];
     _webView.delegate = self;
@@ -251,6 +252,16 @@
     if ([animationID compare:@"exitApplication"] == 0) {
         exit(0);
     }
+}
+
+#pragma mark -- 需要设置全局支持旋转方向，然后重写下面三个方法可以让当前页面支持多个方向
+// 是否支持自动转屏
+- (BOOL)shouldAutorotate {
+    return NO;
+}
+// 支持哪些屏幕方向
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 

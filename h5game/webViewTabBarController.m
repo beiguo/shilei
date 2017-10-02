@@ -40,6 +40,9 @@
     }
     self.delegate = self;
     [self setViewControllers:vcArr];
+    
+    self.tabBar.barTintColor = [UIColor whiteColor];
+    
 }
 -(BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
     NSInteger tag = [tabBarController.viewControllers indexOfObject:viewController];
